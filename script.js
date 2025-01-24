@@ -38,10 +38,8 @@ rainBow.addEventListener("click", () => {
 let isDrawing = false;
 
 gridBox.addEventListener("mousedown", event => {
-    if (event.target.classList.contains("square")) {
+    if (event.target.classList.contains("square"))
         isDrawing = true;
-        event.target.style.backgroundColor = colorPicker.value;
-    }
 });
 
 gridBox.addEventListener("mousemove", event => {
@@ -52,8 +50,6 @@ gridBox.addEventListener("mousemove", event => {
             event.target.style.backgroundColor = colorPicker.value;
     }
 });
-
-
 
 document.addEventListener("mouseup", () => {
     isDrawing = false;
