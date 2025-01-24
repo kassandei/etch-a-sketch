@@ -2,8 +2,9 @@ const colorPicker = document.querySelector("#colorPicker");
 const container = document.querySelector("#container");
 const gridBox = document.createElement("div");
 const erase = document.querySelector("#buttonErase")
-const gridSize = document.getElementById('gridSize');
-const gridSizeValue = document.getElementById('gridSizeValue');
+const gridSize = document.querySelector('#gridSize');
+const gridSizeValue = document.querySelector('#gridSizeValue');
+const rainBow = document.querySelector('#buttonRainbow');
 
 gridBox.setAttribute('id', 'gridBox');
 createSquares(16);
@@ -23,8 +24,15 @@ function createSquares(nSquares) {
 }
 
 
+let colorRainbow = false;
+
 colorPicker.addEventListener("input", event => {
+    colorRainbow = false;
     document.querySelector(".button-like").style.backgroundColor = event.target.value;
+})
+
+rainBow.addEventListener("click", () => {
+    colorRainbow = !colorRainbow; 
 })
 
 let isDrawing = false;
@@ -38,9 +46,14 @@ gridBox.addEventListener("mousedown", event => {
 
 gridBox.addEventListener("mousemove", event => {
     if (isDrawing && event.target.classList.contains("square")) {
-        event.target.style.backgroundColor = colorPicker.value;
+        if(colorRainbow)
+            event.target.style.backgroundColor = getRandomColor();
+        else
+            event.target.style.backgroundColor = colorPicker.value;
     }
 });
+
+
 
 document.addEventListener("mouseup", () => {
     isDrawing = false;
@@ -58,4 +71,6 @@ gridSize.addEventListener("input", event => {
     createSquares(event.target.value);
 });
 
-
+function getRandomColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+}
