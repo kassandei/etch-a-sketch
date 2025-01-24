@@ -61,6 +61,12 @@ button, .button-like {
     scale: 1.1;
 }
 
+#buttons button:active, .button-like:active {
+    background-color: rgb(211, 229, 255);
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
 .button-like {
     display: flex;
     justify-content: center;
