@@ -11,11 +11,12 @@
     <div id="header">Draw your dreams</div>
     <div id="container">
         <div id="buttons">
-            <button id="buttonColor">COLOR</button>
+            <label for="colorPicker" class="button-like">COLOR</label>
+            <input type="color" id="colorPicker" value="#000000">
             <button id="buttonErase">ERASE</button>
-            <button id="buttonNewGrid">NEW GRID</button>
+            <input type="range" id="gridSize" min="1" max="64" value="16">
+            <span id="gridSizeValue">16</span>
         </div>
-        <div id="gridBox"></div>
     </div>
     <footer>
         <p>Copyright 2025@ Kassandei</p>
