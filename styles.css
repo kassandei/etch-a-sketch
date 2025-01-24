@@ -45,7 +45,8 @@ body {
     height: 50%;
 }
 
-#buttons button, .button-like {
+button, .button-like {
+    transition-duration: 0.4s;
     font-size: 20px;
     font-weight: bolder;
     border: 2px solid rgb(92, 89, 89);
@@ -53,6 +54,11 @@ body {
     width: 80%;
     height: 15%;
     border-radius: 16px;
+}
+
+#buttons button:hover, .button-like:hover {
+    background-color: rgb(211, 229, 255);
+    scale: 1.1;
 }
 
 .button-like {
